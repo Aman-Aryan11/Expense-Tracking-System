@@ -1,5 +1,8 @@
 import mysql.connector
 from contextlib import contextmanager
+from logging_setup import setup_logger
+
+logger = setup_logger('db_helper')
 
 @contextmanager
 def get_db_cursor(commit=False):
@@ -22,10 +25,14 @@ def get_db_cursor(commit=False):
 
 def fetch_expenses_for_date(expense_date):
     """Fetch expense for a specific date."""
-    with get_db_cursor() as cursor:
-        query = "SELECT * FROM expenses WHERE expense_date = %s"
-        cursor.execute(query, (expense_date,))
-        return cursor.fetchall()
+    try:
+        with get_db_cursor() as cursor:
+            query = "SELECT * FROM expenses WHERE expense_date = %s"
+            cursor.execute(query, (expense_date,))
+            return cursor.fetchall()
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+        return []
     
 def delete_expenses_for_date(expense_date):
     """Delete expenses for a specific date."""
@@ -53,6 +60,21 @@ def fetch_expense_summary(start_date, end_date):
         """
         cursor.execute(query, (start_date, end_date))
         return cursor.fetchall()
+
+
+def fetch_monthly_expense_summary():
+    logger.info(f"fetch_expense_summary_by_months")
+    with get_db_cursor() as cursor:
+        cursor.execute(
+            '''SELECT month(expense_date) as expense_month, 
+               monthname(expense_date) as month_name,
+               sum(amount) as total_amount FROM expenses
+               GROUP BY expense_month, month_name;
+            '''
+        )
+        data = cursor.fetchall()
+        return data
+
 
 if __name__ == "__main__":
     # expenses = fetch_expenses_for_date('2024-09-30')
