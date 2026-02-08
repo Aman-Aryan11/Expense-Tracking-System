@@ -1,0 +1,16 @@
+# Expense Tracking System — Python dependencies
+# Install: pip install -r requirements.txt
+
+# ----- Backend (FastAPI + DB) -----
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+mysql-connector-python>=8.2.0
+pydantic>=2.0.0
+
+# ----- Frontend (Streamlit) -----
+streamlit>=1.29.0
+requests>=2.31.0
+pandas>=2.0.0
+
+# ----- Tests -----
+pytest>=7.4.0

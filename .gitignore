@@ -1,3 +1,6 @@
+# macOS
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -60,6 +63,7 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+server.log
 
 # Flask stuff:
 instance/
@@ -124,7 +128,7 @@ ipython_config.py
 #   in the .venv directory. It is recommended not to include this directory in version control.
 .pixi
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and pdm-project/pdm
 __pypackages__/
 
 # Celery stuff
@@ -147,7 +151,7 @@ my_venv/
 
 # Spyder project settings
 .spyderproject
-.spyproject
+.spproject
 
 # Rope project settings
 .ropeproject
@@ -172,8 +176,7 @@ cython_debug/
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+#  and can be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #.idea/
 
 # Abstra
@@ -183,10 +186,10 @@ cython_debug/
 .abstra/
 
 # Visual Studio Code
-#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
+#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
-#  you could uncomment the following to ignore the entire vscode folder
+#  and can be added to the global gitignore or merged into this file. However, if you prefer,
+#  uncomment the following to ignore the entire vscode folder
 # .vscode/
 
 # Ruff stuff:
